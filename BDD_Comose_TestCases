@@ -1,0 +1,151 @@
+ Test Case 1: Successfully Compose and Send an Email
+Scenario: Sending an email with valid inputs
+Given: A user is logged into their Gmail account.
+The user is on the Gmail inbox page.
+When:The user clicks the "Compose" button.
+The user enters a valid email address in the "To" field.
+The user fills in the "Subject" field and writes a message in the body.
+The user clicks the "Send" button.
+Then:The email should be sent successfully.
+A confirmation message should appear ("Your message has been sent.").
+The email should appear in the "Sent" folder.
+
+Test Case 2: Attempt to Compose an Email Without Recipient
+Scenario: Composing an email without entering a recipient
+Given:
+A user is logged into their Gmail account.
+When:
+The user clicks the "Compose" button.
+The user enters content in the "Subject" and "Body" fields but leaves the "To" field blank.
+The user clicks the "Send" button.
+Then:
+Gmail should display an error message: "Please specify at least one recipient."
+The email should not be sent.
+
+Test Case 3: Save an Email as a Draft
+Scenario: Saving an incomplete email as a draft
+Given:
+A user is logged into their Gmail account.
+When:
+The user clicks the "Compose" button.
+The user enters content in any field (e.g., "Subject" or "Body").
+The user closes the compose window without clicking "Send."
+Then:
+The email should be saved automatically in the "Drafts" folder.
+
+Test Case 4: Discard an Email in Compose Mode
+Scenario: Discarding an unsent email
+Given:
+A user is logged into their Gmail account.
+When:
+The user clicks the "Compose" button.
+The user enters any content in the "To," "Subject," or "Body" fields.
+The user clicks the "Discard" button in the compose window.
+Then:
+The draft should be deleted.
+A confirmation message (if applicable) should appear, such as "Draft discarded."
+
+Test Case 5: Compose an Email with Attachment
+Scenario: Sending an email with an attachment
+Given:
+A user is logged into their Gmail account.
+When:
+
+The user clicks the "Compose" button.
+The user attaches a file using the "Attach files" option.
+The user enters a valid recipient, subject, and body text.
+The user clicks the "Send" button.
+Then:
+
+The email should be sent successfully with the attachment included.
+The sent email should appear in the "Sent" folder with the attachment icon.
+
+Test Case 6: Add CC and BCC Recipients
+Scenario: Adding CC and BCC recipients to an email
+Given:
+A user is logged into their Gmail account.
+When:
+The user clicks the "Compose" button.
+The user enters valid email addresses in the "To," "CC," and "BCC" fields.
+The user fills in the "Subject" and "Body" fields.
+The user clicks the "Send" button.
+Then:
+The email should be sent successfully to all recipients in "To," "CC," and "BCC."
+
+Test Case 7: Compose and Send an Email with Formatting
+Scenario: Sending an email with formatted text
+Given:
+A user is logged into their Gmail account.
+When:
+The user clicks the "Compose" button.
+The user uses the formatting toolbar to apply bold, italic, underline, and colored text in the body.
+The user enters a valid recipient, subject, and body.
+The user clicks the "Send" button.
+Then:
+The email should be sent with the formatted text preserved.
+
+Test Case 8: Compose an Email with an Invalid Email Address
+Scenario: Sending an email with an invalid recipient email address
+Given:
+A user is logged into their Gmail account.
+When:
+The user clicks the "Compose" button.
+The user enters an invalid email address in the "To" field (e.g., missing "@" or ".com").
+The user clicks the "Send" button.
+Then:
+Gmail should display an error message: "Invalid email address."
+The email should not be sent.
+
+Test Case 9: Compose an Email with Large Attachments
+Scenario: Sending an email with a large file attachment
+Given:
+A user is logged into their Gmail account.
+When:
+The user clicks the "Compose" button.
+The user attempts to attach a file larger than Gmail's attachment limit (25 MB).
+Then:
+Gmail should prompt the user to upload the file via Google Drive.
+The user should be able to send the email with a Google Drive link for the large file.
+
+Test Case 10: Autosave Functionality While Composing
+Scenario: Autosave of email content during composition
+Given:
+A user is logged into their Gmail account.
+When:
+The user begins composing an email but does not send it.
+The compose window is idle for a period of time.
+Then:
+The email content should be autosaved periodically in the "Drafts" folder.
+Test Case 11: Cancel Sending an Email (Undo)
+Scenario: Undo sending an email immediately after clicking "Send"
+Given:
+A user is logged into their Gmail account.
+When:
+The user clicks "Compose" and sends an email.
+The user immediately clicks "Undo" in the "Message sent" popup.
+Then:
+The email should not be sent.
+The email should return to the compose mode for further editing.
+
+Test Case 12: Compose an Email with Special Characters in the Subject
+Scenario: Sending an email with special characters in the subject line
+Given:
+A user is logged into their Gmail account.
+When:
+The user clicks the "Compose" button.
+The user enters special characters (e.g., "@#$%&*") in the "Subject" field.
+The user enters valid content in the "To" and "Body" fields.
+The user clicks the "Send" button.
+Then:
+The email should be sent successfully with the special characters in the subject.
+
+Test Case 13: Compose Multiple Emails Simultaneously
+Scenario: Composing multiple emails in separate windows
+Given:
+A user is logged into their Gmail account.
+When:
+The user clicks the "Compose" button multiple times to open separate compose windows.
+The user fills in details for each email and sends them one by one.
+Then:
+All emails should be sent successfully.
+Each email should appear in the "Sent" folder.
